@@ -3,7 +3,7 @@
     var playerVJS = new PlayerVJS({
         parsePlayer: true,
         ignoreSelector: '',
-        multiplePlaying: false,
+        multiplePlaying: true,
         urlFlashSwf: 'http://' + window.location.host + '/video-js.swf',
         optionsPlayer: {
             nativeControlsForTouch: false,

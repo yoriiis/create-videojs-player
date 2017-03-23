@@ -1,7 +1,7 @@
 /**
  *
  * Module: VideoJS player
- * @version 1.0.0
+ * @version 1.0.1
  * @author: Joris DANIEL
  * @fileoverview: Easy way to load and manage multiple VideoJS player with API
  * Compatibilities : videoJS API v5.0.0+
@@ -68,7 +68,7 @@
 
             var element = selector[i],
                 selectorId = element.querySelector('.video-js').getAttribute('id'),
-                playerPoster = element.parentNode.querySelector('.player-poster');
+                playerPoster = element.parentNode.querySelector('.player-poster') || false;
 
             utils.addClass('parsed', element);
 
@@ -77,7 +77,7 @@
 
                 var player = this,
                     selectorId = player.el().getAttribute('id'),
-                    playerPoster = player.el().parentNode.parentNode.querySelector('.player-poster');
+                    playerPoster = player.el().parentNode.parentNode.querySelector('.player-poster') || false;
 
                 player.on('play', function(){
 
@@ -101,9 +101,11 @@
                     _this.onCallbackPlayerReady(this);
                 }else{
 
-                    //On video ended, show poster video
+                    //On video ended, show poster video if element exist
                     player.on('ended', function(){
-                        playerPoster.style.display = 'block';
+                        if( playerPoster !== false ){
+                            playerPoster.style.display = 'block';
+                        }
                     });
 
                 }
@@ -113,21 +115,23 @@
             element.setAttribute('data-vjs-key', _this.players.length);
             this.players.push(instancePlayer);
 
-            //Start video on poster click, and hide it
-            playerPoster.addEventListener('click', function(e){
+            //Start video on poster click, and hide it if element exist
+            if( playerPoster !== false ){
+                playerPoster.addEventListener('click', function(e){
 
-                var instancePlayer = _this.players[e.currentTarget.parentNode.querySelector('.player-vjs-js').getAttribute('data-vjs-key')];
+                    var instancePlayer = _this.players[e.currentTarget.parentNode.querySelector('.player-vjs-js').getAttribute('data-vjs-key')];
 
-                e.preventDefault();
+                    e.preventDefault();
 
-                if (typeof _this.onCallbackPlayerClickPoster === 'function') {
-                    _this.onCallbackPlayerClickPoster(e, instancePlayer);
-                }else{
-                    instancePlayer.play();
-                    e.currentTarget.style.display = 'none';
-                }
+                    if (typeof _this.onCallbackPlayerClickPoster === 'function') {
+                        _this.onCallbackPlayerClickPoster(e, instancePlayer);
+                    }else{
+                        instancePlayer.play();
+                        e.currentTarget.style.display = 'none';
+                    }
 
-            });
+                });
+            }
 
         }
 

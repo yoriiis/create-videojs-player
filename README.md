@@ -1,11 +1,11 @@
-![videojs-player-js](https://img.shields.io/badge/videoJS_Player-v1.0.0-000000.svg?style=flat-square)
+![videojs-player-js](https://img.shields.io/badge/videoJS_Player-v1.0.1-000000.svg?style=flat-square)
 ![videoJS](https://img.shields.io/badge/videoJS-v5.0.0+=-66A8CC.svg?style=flat-square)
 
 # [videoJS Player](http://yoriiis.github.io/videojs-player)
 
 videoJS player module allow you to automatically parse DOM and start instantiation. Each player is available with a small boilerplate (poster and play button).
 
-You can managed all videos videoJS on your page with a global javascript object `PlayerVJS`. It is write in vanillaJS, no needs to import jQuery.
+You can manage all videos videoJS on your page with a global javascript object `PlayerVJS`. It is write in vanillaJS, no needs to import jQuery.
 
 ## Installation
 
@@ -19,7 +19,7 @@ Call videoJS player module in your HTML before your application and use it.
 
 ### HTML structure
 
-Use HTML structure below without change. Replace just `{{idSelector}}` with a unique id and `{{urlVideo}}` with the url of the video. Integration in .player-poster tag can be easily modified.<br />
+Use HTML structure below without change. Replace just `{{idSelector}}` with a unique id and `{{urlVideo}}` with the url of the video. Tag `.player-poster` is optional and integration inside can be easily modified.<br />
 _For information, all player must have a unique id._
 
 ```html

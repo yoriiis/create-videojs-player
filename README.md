@@ -1,4 +1,4 @@
-![videojs-player-js](https://img.shields.io/badge/videoJS_Player-v1.0.1-000000.svg?style=flat-square)
+![videojs-player-js](https://img.shields.io/badge/videoJS_Player-v1.0.2-000000.svg?style=flat-square)
 ![videoJS](https://img.shields.io/badge/videoJS-v5.0.0+=-66A8CC.svg?style=flat-square)
 
 # [videoJS Player](http://yoriiis.github.io/videojs-player)
@@ -79,7 +79,7 @@ playerVJS.reParse('.player-vjs-js');
 There are events available with module player. If events function exist, default behavior is overrided.
 
 * [`onReady`](#onReady) - Event on player videoJS ready
-* [`posterClick`](#posterClick) - Event on player poster click
+* [`onPosterClick`](#onPosterClick) - Event on player poster click
 
 ```javascript
 var playerVJS = new PlayerVJS({
@@ -94,7 +94,7 @@ var playerVJS = new PlayerVJS({
     },
     events: {
         onReady: onPlayerReady,
-        posterClick: onPosterClick
+        onPosterClick: onPosterClick
     }
 });
 ```
@@ -115,10 +115,10 @@ function onPlayerReady(player){
 
 #### <a name="posterClick"></a>On player poster click
 
-Function called on poster click. `e` parameter is click event, `instancePlayer` is the instance of the player. There is a default behavior to player the video and hide the poster. You can change this behavior with this event function.
+Function called on poster click. `e` parameter is click event, `instancePlayer` is the instance of the player. There is a default behavior to play the video and hide the poster. You can change this behavior with this event function.
 
 ```javascript
 function onPosterClick(e, player){
-    console.log('posterClick', e, player);
+    console.log('onPosterClick', e, player);
 }
 ```

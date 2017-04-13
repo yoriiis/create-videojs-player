@@ -15,7 +15,7 @@ Call videoJS player module in your HTML before your application and use it.
 <script src="js/videojs-player.js"></script>
 ```
 
-## How it work
+## How it works
 
 ### HTML structure
 
@@ -50,7 +50,7 @@ _More informations on <a href="http://docs.videojs.com" title="videoJS API docum
 var playerVJS = new PlayerVJS({
     parsePlayer: true,
     ignoreSelector: '',
-    multiplePlaying: false,
+    multiplePlaying: true,
     urlFlashSwf: 'http://' + window.location.host + '/video-js.swf',
     optionsPlayer: {
         nativeControlsForTouch: false,
@@ -74,35 +74,51 @@ This method accept one parameter, a string with selector class or id to parse sp
 playerVJS.reParse('.player-vjs-js');
 ```
 
-### Callback function
+### Events
 
-There are one callback available with module player. If callback exist, default behavior is overrided.
+There are events available with module player. If events function exist, default behavior is overrided.
 
-* [`onCallbackPlayerReady`](#onCallbackPlayerVJSReady)
-* [`onCallbackPlayerClickPoster`](#onCallbackPlayerClickPosterVJS)
-
-#### <a name="onCallbackPlayerVJSReady"></a>On callback player videoJS ready
-
-Function called when every player is ready and instanciated. `player` parameter is player instance. There is a default behavior to show poster when video is ended. You can change this behavior with this callback function.
+* [`onReady`](#onReady) - Event on player videoJS ready
+* [`posterClick`](#posterClick) - Event on player poster click
 
 ```javascript
-playerVJS.onCallbackPlayerReady = function(player){ };
+var playerVJS = new PlayerVJS({
+    parsePlayer: true,
+    ignoreSelector: '',
+    multiplePlaying: true,
+    urlFlashSwf: 'http://' + window.location.host + '/video-js.swf',
+    optionsPlayer: {
+        nativeControlsForTouch: false,
+        preload: 'auto',
+        volumeControl: false
+    },
+    events: {
+        onReady: onPlayerReady,
+        posterClick: onPosterClick
+    }
+});
 ```
+
+#### <a name="onReady"></a>On player videoJS ready
+
+Function called when each player is ready and instanciated. `player` parameter is player instance. There is a default behavior to show poster when video is ended. You can change this behavior with this event function.
 
 For example, you can add specific behavior when player is ready. In example below, show a log when the player start play.
 
 ```javascript
-playerVJS.onCallbackPlayerReady = function(player){
+function onPlayerReady(player){
     player.on('play', function(){
         console.log('videoJS play');
     });
-};
+}
 ```
 
-#### <a name="onCallbackPlayerClickPosterVJS"></a>On callback player poster click
+#### <a name="posterClick"></a>On player poster click
 
-Function called on poster click. `e` parameter is click event, `instancePlayer` is the instance of the player. There is a default behavior to hide poster on click and to play video. You can change this behavior with this callback function.
+Function called on poster click. `e` parameter is click event, `instancePlayer` is the instance of the player. There is a default behavior to player the video and hide the poster. You can change this behavior with this event function.
 
 ```javascript
-playerVJS.onCallbackPlayerClickPoster = function(e, instancePlayer){ };
+function onPosterClick(e, player){
+    console.log('posterClick', e, player);
+}
 ```

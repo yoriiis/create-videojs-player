@@ -1,7 +1,7 @@
 /**
  *
  * Module: VideoJS player
- * @version 1.0.1
+ * @version 1.0.2
  * @author: Joris DANIEL
  * @fileoverview: Easy way to load and manage multiple VideoJS player with API
  * Compatibilities : videoJS API v5.0.0+
@@ -27,7 +27,8 @@
                 nativeControlsForTouch: false,
                 preload: 'auto',
                 volumeControl: false
-            }
+            },
+            events: {}
         };
 
         this.options = utils.extend({}, defaultOptions, options);
@@ -97,8 +98,8 @@
                     _this.updateArrayPlayersPlaying(selectorId);
                 });
 
-                if (typeof _this.onCallbackPlayerReady === 'function') {
-                    _this.onCallbackPlayerReady(this);
+                if (typeof _this.options.events.onReady === 'function') {
+                    _this.options.events.onReady(player);
                 }else{
 
                     //On video ended, show poster video if element exist
@@ -123,8 +124,8 @@
 
                     e.preventDefault();
 
-                    if (typeof _this.onCallbackPlayerClickPoster === 'function') {
-                        _this.onCallbackPlayerClickPoster(e, instancePlayer);
+                    if (typeof _this.options.events.posterClick === 'function') {
+                        _this.options.events.posterClick(e, instancePlayer);
                     }else{
                         instancePlayer.play();
                         e.currentTarget.style.display = 'none';

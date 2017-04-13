@@ -124,8 +124,8 @@
 
                     e.preventDefault();
 
-                    if (typeof _this.options.events.posterClick === 'function') {
-                        _this.options.events.posterClick(e, instancePlayer);
+                    if (typeof _this.options.events.onPosterClick === 'function') {
+                        _this.options.events.onPosterClick(e, instancePlayer);
                     }else{
                         instancePlayer.play();
                         e.currentTarget.style.display = 'none';

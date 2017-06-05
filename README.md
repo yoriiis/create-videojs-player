@@ -1,4 +1,4 @@
-![videojs-player-js](https://img.shields.io/badge/videoJS_Player-v1.0.2-000000.svg?style=flat-square)
+![videojs-player-js](https://img.shields.io/badge/videoJS_Player-v1.0.3-000000.svg?style=flat-square)
 ![videoJS](https://img.shields.io/badge/videoJS-v5.0.0+=-66A8CC.svg?style=flat-square)
 
 # [videoJS Player](http://yoriiis.github.io/videojs-player)

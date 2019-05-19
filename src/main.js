@@ -1,4 +1,4 @@
-import VideojsPlayer from '../dist/videojs-player.js'
+import VideojsPlayer from './videojs-player.js'
 
 const videojsPlayer = new VideojsPlayer({
 	multiplePlaying: false

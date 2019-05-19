@@ -1,0 +1,39 @@
+{
+  "name": "create-videojs-player",
+  "version": "2.0.0",
+  "description": "Easy way to load and manage multiple Videojs players with API",
+  "author": "Yoriiis aka Joris DANIEL",
+  "license": "MIT",
+  "main": "./dist/videojs-player.min.js",
+  "scripts": {
+    "build": "mkdir -p dist && npx babel ./src/videojs-player.js --out-file ./dist/videojs-player.js && uglifyjs ./dist/videojs-player.js --compress --mangle --output ./dist/videojs-player.min.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.4",
+    "@babel/preset-env": "7.4.4",
+    "babel-plugin-add-module-exports": "1.0.2",
+    "uglify-es": "3.3.9"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoriiis/create-videojs-player.git"
+  },
+  "keywords": [
+    "videojs",
+    "videojs api",
+    "player",
+    "api",
+    "video",
+    "simple",
+    "customizable",
+    "powerful",
+    "lightweight",
+    "no dependencies"
+  ],
+  "bugs": {
+    "url": "https://github.com/yoriiis/create-videojs-player/issues"
+  },
+  "homepage": "https://github.com/yoriiis/create-videojs-player#readme"
+}

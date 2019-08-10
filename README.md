@@ -1,4 +1,4 @@
-![Create Videojs Player](https://img.shields.io/badge/Create_Videojs_Player-v2.0.0-66A8CC.svg?style=flat-square)
+![Create Videojs Player](https://img.shields.io/badge/Create_Videojs_Player-v2.0.1-66A8CC.svg?style=flat-square)
 
 # Create Videojs Player
 

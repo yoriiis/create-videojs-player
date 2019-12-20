@@ -1,6 +1,6 @@
 {
   "name": "create-videojs-player",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Easy way to load and manage multiple Videojs players with API",
   "author": "Yoriiis aka Joris DANIEL",
   "license": "MIT",

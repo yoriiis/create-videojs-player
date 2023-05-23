@@ -1,3 +1,5 @@
+> **Warning** `create-videojs-player` is deprecated and has been merged into the `vLitejs` project. See [vLitejs](https://github.com/vlitejs/vlite) for its successor 🎉
+
 ![Create Videojs Player](https://img.shields.io/badge/Create_Videojs_Player-v2.0.2-66A8CC.svg?style=flat-square)
 
 # Create Videojs Player
